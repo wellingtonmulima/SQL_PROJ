@@ -1,0 +1,260 @@
+CREATE DATABASE Netflix_Shows;
+
+USE Netflix_Shows;
+
+
+mysql> SELECT COUNT("Movie") FROM netflix_titles WHERE type = "Movie" AND country = "United States";
++----------------+
+| COUNT("Movie") |
++----------------+
+|             11 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT type
+    -> FROM netflix_titles
+    -> WHERE title = "Ganglands";
++---------+
+| type    |
++---------+
+| TV Show |
++---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT title FROM netflix_titles WHERE country = "India" AND release_year >= 2021;
++--------------+
+| title        |
++--------------+
+| Kota Factory |
+| Chhota Bheem |
++--------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT title, duration, release_year, date_added FROM netflix_titles WHERE rating = "PG" AND country = "United States";
++--------+----------+--------------+--------------------+
+| title  | duration | release_year | date_added         |
++--------+----------+--------------+--------------------+
+| Jaws   | 124 min  |         1975 | September 16, 2021 |
+| Jaws 2 | 116 min  |         1978 | September 16, 2021 |
+| Jaws 3 | 98 min   |         1983 | September 16, 2021 |
++--------+----------+--------------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT  title FROM netflix_titles WHERE show_id > "s5" AND release_year = 2021 ORDER BY title DESC LIMIT 10 ;
++-------------------------------------------+
+| title                                     |
++-------------------------------------------+
+| You vs. Wild: Out Cold                    |
+| Tughlaq Durbar (Telugu)                   |
+| Too Hot To Handle: Latino                 |
+| The World's Most Amazing Vacation Rentals |
+| The Women and the Murderer                |
+| The Great British Baking Show             |
+| The Circle                                |
+| Schumacher                                |
+| Prey                                      |
+| PokÃ©mon Master Journeys: The Series      |
++-------------------------------------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT type, title, duration FROM netflix_titles WHERE rating = "PG-13";
++-------+------------------------------------------+----------+
+| type  | title                                    | duration |
++-------+------------------------------------------+----------+
+| Movie | Dick Johnson Is Dead                     | 90 min   |
+| Movie | The Starling                             | 104 min  |
+| Movie | Grown Ups                                | 103 min  |
+| Movie | Dark Skies                               | 97 min   |
+| Movie | Paranoia                                 | 106 min  |
+| Movie | Birth of the Dragon                      | 96 min   |
+| Movie | Jaws: The Revenge                        | 91 min   |
+| Movie | Blood Brothers: Malcolm X & Muhammad Ali | 96 min   |
++-------+------------------------------------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT title, duration FROM netflix_titles WHERE type = "TV Show";
++-------------------------------------------------+-----------+
+| title                                           | duration  |
++-------------------------------------------------+-----------+
+| Blood & Water                                   | 2 Seasons |
+| Ganglands                                       | 1 Season  |
+| Jailbirds New Orleans                           | 1 Season  |
+| Kota Factory                                    | 2 Seasons |
+| Midnight Mass                                   | 1 Season  |
+| The Great British Baking Show                   | 9 Seasons |
+| Vendetta: Truth, Lies and The Mafia             | 1 Season  |
+| Bangkok Breaking                                | 1 Season  |
+| Crime Stories: India Detectives                 | 1 Season  |
+| Dear White People                               | 4 Seasons |
+| Falsa identidad                                 | 2 Seasons |
+| Jaguar                                          | 1 Season  |
+| Monsters Inside: The 24 Faces of Billy Milligan | 1 Season  |
+| Resurrection: Ertugrul                          | 5 Seasons |
+| Love on the Spectrum                            | 2 Seasons |
+| Chicago Party Aunt                              | 1 Season  |
+| Sex Education                                   | 3 Seasons |
+| Squid Game                                      | 1 Season  |
+| Tayo and Little Wizards                         | 1 Season  |
+| Angry Birds                                     | 1 Season  |
+| Chhota Bheem                                    | 3 Seasons |
+| He-Man and the Masters of the Universe          | 1 Season  |
+| The Smart Money Woman                           | 1 Season  |
+| Castle and Castle                               | 2 Seasons |
+| Dharmakshetra                                   | 1 Season  |
+| Nailed It                                       | 6 Seasons |
+| Numberblocks                                    | 6 Seasons |
+| Raja Rasoi Aur Anya Kahaniyan                   | 1 Season  |
+| Saved by the Bell                               | 9 Seasons |
+| Stories by Rabindranath Tagore                  | 1 Season  |
+| Too Hot To Handle: Latino                       | 1 Season  |
+| Jack Whitehall: Travels with My Father          | 5 Seasons |
+| The World's Most Amazing Vacation Rentals       | 2 Seasons |
+| Yowamushi Pedal                                 | 1 Season  |
+| Lucifer                                         | 6 Seasons |
+| Metal Shop Masters                              | 1 Season  |
+| PokÃ©mon Master Journeys: The Series            | 1 Season  |
+| Titipo Titipo                                   | 2 Seasons |
+| Mighty Raju                                     | 4 Seasons |
+| Into the Night                                  | 2 Seasons |
+| The Circle                                      | 3 Seasons |
+| Kid Cosmic                                      | 2 Seasons |
+| Octonauts: Above & Beyond                       | 1 Season  |
+| On the Verge                                    | 1 Season  |
+| Tobot Galaxy Detectives                         | 2 Seasons |
++-------------------------------------------------+-----------+
+45 rows in set (0.00 sec)
+
+mysql> SELECT director, show_id, country FROM netflix_titles WHERE title = "Blood & Water";
++----------+---------+--------------+
+| director | show_id | country      |
++----------+---------+--------------+
+|          | s2      | South Africa |
++----------+---------+--------------+
+1 row in set (0.00 sec)
+
+
+mysql>  SELECT description, listed_in, rating, release_year FROM netflix_titles WHERE title = "Midnight Mass";
++----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+--------+--------------+
+| description                                                                                                                                              | listed_in                          | rating | release_year |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+--------+--------------+
+| The arrival of a charismatic young priest brings glorious miracles, ominous mysteries and renewed religious fervor to a dying town desperate to believe. | TV Dramas, TV Horror, TV Mysteries | TV-MA  |         2021 |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT title, director FROM netflix_titles ORDER BY release_year DESC LIMIT 50;
++-------------------------------------------------+--------------------------------------------------------+
+| title                                           | director                                               |
++-------------------------------------------------+--------------------------------------------------------+
+| Je Suis Karl                                    | Christian Schwochow                                    |
+| Blood & Water                                   |                                                        |
+| Ganglands                                       | Julien Leclercq                                        |
+| Jailbirds New Orleans                           |                                                        |
+| Kota Factory                                    |                                                        |
+| Midnight Mass                                   | Mike Flanagan                                          |
+| My Little Pony: A New Generation                | Robert Cullen, JosÃ© Luis Ucha                         |
+| Lucifer                                         |                                                        |
+| The Great British Baking Show                   | Andy Devonshire                                        |
+| The Starling                                    | Theodore Melfi                                         |
+| Vendetta: Truth, Lies and The Mafia             |                                                        |
+| Bangkok Breaking                                | Kongkiat Komesiri                                      |
+| The Circle                                      |                                                        |
+| Confessions of an Invisible Girl                | Bruno Garotti                                          |
+| Crime Stories: India Detectives                 |                                                        |
+| Dear White People                               |                                                        |
+| Kid Cosmic                                      |                                                        |
+| Octonauts: Above & Beyond                       |                                                        |
+| Intrusion                                       | Adam Salky                                             |
+| Jaguar                                          |                                                        |
+| Monsters Inside: The 24 Faces of Billy Milligan | Olivier Megaton                                        |
+| Kate                                            | Cedric Nicolas-Troyan                                  |
+| Firedrake the Silver Dragon                     | Tomer Eshed                                            |
+| Go! Go! Cory Carson: Chrissy Takes the Wheel    | Alex Woo, Stanley Moore                                |
+| Tughlaq Durbar (Telugu)                         | Delhiprasad Deenadayalan                               |
+| Love on the Spectrum                            |                                                        |
+| On the Verge                                    |                                                        |
+| Little Singham - Black Shadow                   | Prakash Satam                                          |
+| Blood Brothers: Malcolm X & Muhammad Ali        | Marcus Clarke                                          |
+| You vs. Wild: Out Cold                          | Ben Simms                                              |
+| Ankahi Kahaniya                                 | Ashwiny Iyer Tiwari, Abhishek Chaubey, Saket Chaudhary |
+| Chicago Party Aunt                              |                                                        |
+| Squid Game                                      |                                                        |
+| The Father Who Moves Mountains                  | Daniel Sandu                                           |
+| The Stronghold                                  | CÃ©dric Jimenez                                        |
+| The World's Most Amazing Vacation Rentals       |                                                        |
+| Jack Whitehall: Travels with My Father          |                                                        |
+| Chhota Bheem                                    |                                                        |
+| He-Man and the Masters of the Universe          |                                                        |
+| A StoryBots Space Adventure                     | David A. Vargas                                        |
+| Too Hot To Handle: Latino                       |                                                        |
+| Schumacher                                      | Hanns-Bruno KammertÃ¶ns, Vanessa NÃ¶cker, Michael Wech |
+| Numberblocks                                    |                                                        |
+| My Heroes Were Cowboys                          | Tyler Greco                                            |
+| Nightbooks                                      | David Yarovesky                                        |
+| Nailed It                                       |                                                        |
+| Castle and Castle                               |                                                        |
+| Metal Shop Masters                              |                                                        |
+| PokÃ©mon Master Journeys: The Series            |                                                        |
+| Prey                                            | Thomas Sieben                                          |
++-------------------------------------------------+--------------------------------------------------------+
+50 rows in set (0.01 sec)
+
+mysql> SELECT title, type ,release_year FROM netflix_titles WHERE country = "Japan";
++------------------------------------------------------------+---------+--------------+
+| title                                                      | type    | release_year |
++------------------------------------------------------------+---------+--------------+
+| InuYasha the Movie 2: The Castle Beyond the Looking Glass  | Movie   |         2002 |
+| InuYasha the Movie 3: Swords of an Honorable Ruler         | Movie   |         2003 |
+| InuYasha the Movie 4: Fire on the Mystic Island            | Movie   |         2004 |
+| InuYasha the Movie: Affections Touching Across Time        | Movie   |         2001 |
+| Naruto Shippuden the Movie: Blood Prison                   | Movie   |         2011 |
+| Naruto ShippÃ»den the Movie: Bonds                         | Movie   |         2008 |
+| Naruto ShippÃ»den the Movie: The Will of Fire              | Movie   |         2009 |
+| Naruto Shippuden: The Movie                                | Movie   |         2007 |
+| Naruto Shippuden: The Movie: The Lost Tower                | Movie   |         2010 |
+| Naruto the Movie 2: Legend of the Stone of Gelel           | Movie   |         2005 |
+| Naruto the Movie 3: Guardians of the Crescent Moon Kingdom | Movie   |         2006 |
+| Naruto the Movie: Ninja Clash in the Land of Snow          | Movie   |         2004 |
+| Yowamushi Pedal                                            | TV Show |         2013 |
++------------------------------------------------------------+---------+--------------+
+13 rows in set (0.00 sec)
+
+mysql> SELECT COUNT("Movie") AS No_of_Movies FROM netflix_titles WHERE Country = "United States" ;
++--------------+
+| No_of_Movies |
++--------------+
+|           17 |
++--------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
