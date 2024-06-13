@@ -282,3 +282,62 @@ mysql> SELECT AVG(income) AS avg_income_of_student  FROM `average time spent by 
 |            15265.7314 |
 +-----------------------+
 1 row in set (0.01 sec)
+
+profession and platform where interest is travelling
+
+mysql> SELECT profession, platform FROM `average time spent by a user on social media` WHERE interests = "Travel" ORDER BY platform DESC LIMIT 50;
++-------------------+----------+
+| profession        | platform |
++-------------------+----------+
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Student           | YouTube  |
+| Student           | YouTube  |
+| Student           | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Student           | YouTube  |
+| Marketer Manager  | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Marketer Manager  | YouTube  |
+| Student           | YouTube  |
+| Student           | YouTube  |
+| Student           | YouTube  |
+| Software Engineer | YouTube  |
+| Marketer Manager  | YouTube  |
+| Student           | YouTube  |
+| Software Engineer | YouTube  |
+| Marketer Manager  | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Marketer Manager  | YouTube  |
+| Student           | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Marketer Manager  | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
+| Student           | YouTube  |
+| Marketer Manager  | YouTube  |
+| Marketer Manager  | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Student           | YouTube  |
+| Software Engineer | YouTube  |
+| Student           | YouTube  |
+| Student           | YouTube  |
+| Marketer Manager  | YouTube  |
+| Marketer Manager  | YouTube  |
+| Software Engineer | YouTube  |
+| Software Engineer | YouTube  |
++-------------------+----------+
+50 rows in set (0.02 sec)
